@@ -1,0 +1,15 @@
+class Fila:
+	def __init__(self):
+		self.fila = [] 
+
+def add(self , elemento ):
+	self.fila.append(elemeto)
+
+def chamar( self ):
+	if not self.vazia():
+		return self.fila.pop(0)
+
+def private vazia (self):
+	return self.len(self.fila) == 0 
+
+
