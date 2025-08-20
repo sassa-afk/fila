@@ -54,10 +54,26 @@ O projeto está organizado em camadas seguindo uma estrutura DDD em Python puro 
     
 ---
 
+## Logica aplicada 
+
+O main.py (project/main.py) é o ponto de entrada da aplicação, responsável por conectar todas as rotas definidas nas pastas GET e POST (project/backend/app/api/GET ou POST). Cada pasta contém o arquivo root.py, onde estão declaradas as rotas da API para leitura e escrita, respectivamente. Para autenticação e proteção das rotas sensíveis, os arquivos utilizam os serviços do security.py (project/backend/core/security.py), que gerencia a autenticação via JWT.
+
+A pasta services/ contém a lógica de negócio da fila (project/backend/app/services/fila.py), como adicionar, remover e chamar clientes considerando prioridades. A pasta schemas/ define os modelos de dados para requisições e respostas, garantindo validação. A pasta models/ organiza os objetos que representam os dados do sistema, facilitando futura integração com banco de dados.
+
+O arquivo main.py também escuta as rotas, gerencia segurança (JWT) e integra os serviços de modelagem de filas, instanciando funções nas rotas para realizar os processos de adição, visualização e remoção de clientes na fila.
+
+Os arquivos de destaque estão em:
+
+- project/main.py
+- project/backend/app/api/GET/root.py
+- project/backend/app/api/POST/root.py
+- project/backend/app/core/security.py
+- project/backend/app/services/fila.py
+
 
 ## Configuração do Ambiente (Linux)
 
-Instalação :
+Instalação : 
 
 ---
 	python3 -m venv venv
@@ -80,15 +96,15 @@ Para startar sua api execute : uvicorn app.main:app --reload --host 0.0.0.0 --po
 Primeiro suba seu projeto no github para sincronizar com o render em seguida, crue uma novo Web Service e conecte ao GitHub e escolha o repositório. Configure: 
 
 ---
-   Environment: Python 3
+	Environment: Python 3
 
-   Build Command:
+	Build Command:
 
-   pip install -r requirements.txt
+	pip install -r requirements.txt
 
-   Start Command:
+ 	Start Command:
 
-   uvicorn main:app --host 0.0.0.0 --port 10000
+	uvicorn main:app --host 0.0.0.0 --port 10000
 ---
 
 OBS : Até o momento não havera varaiveis de ambientes configuradas no render
