@@ -55,26 +55,22 @@ O projeto está organizado em camadas seguindo uma estrutura DDD em Python puro 
 ---
 
 
-## Diagrama de classe
----
----
-
 ## Configuração do Ambiente (Linux)
 
 Instalação :
 
 ---
-   python3 -m venv venv
+	python3 -m venv venv
 
-   source venv/bin/activate
+	source venv/bin/activate
 
-   pip install --upgrade pip
+	pip install --upgrade pip
 
-   pip install fastapi
+	pip install fastapi
 
-   pip install "uvicorn[standard]"
+	pip install "uvicorn[standard]"
 
-   pip install python-jose[cryptography]
+	pip install python-jose[cryptography]
 ---
 
 Para startar sua api execute : uvicorn app.main:app --reload --host 0.0.0.0 --port 5000
